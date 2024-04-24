@@ -1,8 +1,8 @@
 package simpleaudiodecoder
 
 /*
-#cgo CFLAGS: -I./simple-audio-decoder-rs/src/
-#cgo LDFLAGS: -L./simple-audio-decoder-rs/target/release -lsimple_audio_decoder_rs
+#cgo CFLAGS: -I./lib
+#cgo LDFLAGS: -L./lib -lsimple_audio_decoder_rs
 #include "simple_audio_decoder_rs.h"
 */
 import "C"
