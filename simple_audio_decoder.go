@@ -54,3 +54,7 @@ func (audioClip *AudioClip) ResampleNext() (*[][]float32, bool, error) {
 func (audioClip *AudioClip) Free() {
 	C.audio_clip_free(audioClip.ptr)
 }
+
+func ClearCache() {
+	C.clear_cache()
+}

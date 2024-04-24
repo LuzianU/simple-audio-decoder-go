@@ -48,6 +48,9 @@ func main() {
 	// free resources (important!)
 	clip.Free()
 
+	// optionally clear cache
+	simpleaudiodecoder.ClearCache()
+
 	channels := len(resampled)
 	frames := len(resampled[0])
 
