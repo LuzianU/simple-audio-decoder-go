@@ -14,7 +14,13 @@ func main() {
 	targetSampleRate := 192000
 	chunkSize := 1024
 
-	clip, err := simpleaudiodecoder.FromFile(file, targetSampleRate, chunkSize)
+	pcm, err := simpleaudiodecoder.NewPcmFromFile(file)
+	if err != nil {
+		fmt.Println("Failed to create Pcm from file")
+		return
+	}
+
+	clip, err := simpleaudiodecoder.NewAudioClip(pcm, targetSampleRate, chunkSize)
 	if err != nil {
 		fmt.Println("Failed to create AudioClip from file")
 		return
@@ -47,9 +53,7 @@ func main() {
 
 	// free resources (important!)
 	clip.Free()
-
-	// optionally clear cache
-	simpleaudiodecoder.ClearCache()
+	pcm.Free()
 
 	channels := len(resampled)
 	frames := len(resampled[0])
